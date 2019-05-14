@@ -8,17 +8,6 @@
     <artifactId>mb2g-testing</artifactId>
     <version>1.0</version>
 
-    <distributionManagement>
-      <repository>
-        <id>packagecloud.release</id>
-        <url>packagecloud+https://packagecloud.io/bgx90/release</url>
-      </repository>
-      <snapshotRepository>
-        <id>packagecloud.snapshot</id>
-        <url>packagecloud+https://packagecloud.io/bgx90/snapshot</url>
-      </snapshotRepository>
-    </distributionManagement>
-
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -36,4 +25,23 @@
         </extension>
       </extensions>
     </build>
+
+    <profiles>
+      <profile>
+        <id>packagecloud</id>
+        <activation>
+          <activeByDefault>true</activeByDefault>
+        </activation>
+        <distributionManagement>
+          <repository>
+            <id>packagecloud.release</id>
+            <url>packagecloud+https://packagecloud.io/bgx90/release</url>
+          </repository>
+          <snapshotRepository>
+            <id>packagecloud.snapshot</id>
+            <url>packagecloud+https://packagecloud.io/bgx90/snapshot</url>
+          </snapshotRepository>
+        </distributionManagement>
+      </profile>
+    </profiles>
 </project>
